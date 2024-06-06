@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moteur de recherche</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_main.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
 </head>
 <body>
     <div class="container">
@@ -15,34 +14,22 @@
         </div>
 
         <div class="menu">
-            <select name="descriptor_type" >
+            <select name="descriptor_type">
                 <option value="default" selected>Type de descripteur</option>
-                <option value="HSV">HSV</option>
-                <option value="BGR">BGR</option>
-                <option value="SIFT">SIFT</option>
-                <option value="ORB">ORB</option>
-                <option value="LBP">LBP</option>
-                <option value="GLCM">GLCM</option>
-                <option value="HOG">HOG</option>
-                <option value="VGG16">VGG16</option>
+                <option value="color">Color</option>
+                <option value="shape">Shape</option>
             </select>
             <select name="similarity_calculation">
                 <option value="default" selected>Calcul similarité</option>
-                <option value="Euclidienne">Euclidienne</option>
-                <option value="Correlation">Correlation</option>
-                <option value="Chi Carre">Chi Carre</option>
-                <option value="Intersection">Intersection</option>
-                <option value="Bhattacharyya">Bhattacharyya</option>
-                <option value="Brute_force">Brute force</option>
-                <option value="Flann">Flann</option>
+                <option value="euclidean">Euclidean</option>
+                <option value="manhattan">Manhattan</option>
             </select>
             <select name="images_to_display">
                 <option value="default" selected>Nombre images à afficher</option>
+                <option value="10">10</option>
                 <option value="20">20</option>
-                <option value="50">50</option>
-                
             </select>
-            <button id="load-images" type="button" onclick="loadImages()">Rechercher</button>
+            <button id="load-images" type="button" onclick="loadImages()">Load Images</button>
         </div>
 
         <div class="image-upload" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -56,8 +43,6 @@
             
         </div>
 
-        <div id="RP_pic">
-        </div>
         
         <div class="scroller">
             <div id="results">

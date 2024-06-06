@@ -47,7 +47,7 @@ body {
 }
 
 .image-upload {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,28 +80,13 @@ body {
 }
 
 #input_image_display img {
-    max-width : 100%;
-    max-height: 100%;
+    max-width : 200px;
+    max-height: auto;
     position: relative;
     top: 0;
     left: 0;
     object-fit: cover;
 }
-
-.results {
-    display: grid;
-    grid-template-columns: auto auto;
-    /*flex: 0 0 50%;*/
-   /* margin-left: auto;*/
-    
-}
-
-.results img {
-    padding: 9px; 
-    width: 90%;
-    height: 90%;
-}
-
 
 .scroller {
     width: 400px;
@@ -110,6 +95,26 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
     scrollbar-color: rgb(14, 71, 141) grey;
     scrollbar-width: thin;
+}
+
+
+#results {
+    display: grid;
+    grid-template-columns: auto auto;    
+}
+
+#results img {
+    padding: 9px; 
+    width: 90%;
+    height: 90%;
+}
+
+#RP_graph{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .progress-container {
@@ -136,7 +141,7 @@ body {
 
 footer {
     background-color: rgba(212, 131, 38, 0.9);
-    color: #fff; /* Optional: Set text color to white or any other color for better readability */
-    padding: 20px; /* Optional: Add some padding for better spacing */
-    text-align: center; /* Optional: Center-align the text */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
