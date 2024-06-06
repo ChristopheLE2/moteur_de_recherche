@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moteur de recherche</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_main.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>           
+    
 </head>
 <body>
     <div class="container">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="menu">
-            <select name="descriptor_type" >
+            <select name="descriptor_type" id="descriptor_type" multiple>
                 <option value="default" selected>Type de descripteur</option>
                 <option value="HSV">HSV</option>
                 <option value="BGR">BGR</option>
@@ -25,6 +25,7 @@
                 <option value="GLCM">GLCM</option>
                 <option value="HOG">HOG</option>
                 <option value="VGG16">VGG16</option>
+                <script>new MultiSelectTag('descriptor_type') </script>
             </select>
             <select name="similarity_calculation">
                 <option value="default" selected>Calcul similarité</option>
