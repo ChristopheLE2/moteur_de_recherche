@@ -343,28 +343,45 @@ function selectInput() {
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
     const imagePreviewContainer = document.getElementById('input_image_display');
+    const formData = new FormData();
     
     if(file.type.match('image.*')){
-        const reader = new FileReader();
-        
-        reader.addEventListener('load', function (event) {
-        const imageUrl = event.target.result;
-        const image = new Image();
-        
-        image.addEventListener('load', function() {
-            imagePreviewContainer.innerHTML = ''; // Vider le conteneur au cas où il y aurait déjà des images.
-            imagePreviewContainer.appendChild(image);
+        formData.append('file', file);
+
+        fetch('/upload', {
+        method: 'POST',
+        body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function (event) {
+                const imageUrl = event.target.result;
+                const image = new Image();
+
+                image.addEventListener('load', function() {
+                    imagePreviewContainer.innerHTML = ''; // Vider le conteneur au cas où il y aurait déjà des images.
+                    imagePreviewContainer.appendChild(image);
+                });
+
+                image.src = imageUrl;
+                image.style.width = '200px'; // Indiquez les dimensions souhaitées ici.
+                image.style.height = 'auto';
+                });
+
+                reader.readAsDataURL(file);
+                }
+                else{
+                notImage();
+                }
+            })
+        .catch(error => {
+        console.error('Error:', error);
+        alert('File upload failed');
         });
-        
-        image.src = imageUrl;
-        image.style.width = '200px'; // Indiquez les dimensions souhaitées ici.
-        image.style.height = 'auto'; // Vous pouvez également utiliser "px" si vous voulez spécifier une hauteur.
-        });
-        
-        reader.readAsDataURL(file);
-    }
-    else{
-        notImage();
+
     }
 }
 
@@ -403,15 +420,18 @@ function loadImages() {
         .then(response => response.json())
         .then(data => {
             const imageContainer = document.getElementById('results');
-            imageContainer.innerHTML = ''; // Clear previous images
-            data.forEach(image => {
+            imageContainer.innerHTML = ''; // Supprime les anciennes img
+            
+            const imagesToDisplay = data.filter(image => img_to_show.includes(image));
+
+            imagesToDisplay.forEach(image => {
                 const imgElement = document.createElement('img');
                 imgElement.src = `/static/${image}`;
                 imageContainer.appendChild(imgElement);
             });
 
             const RP_Container = document.getElementById('RP_pic');
-            RP_Container.innerHTML = ''; // Clear previous images
+            RP_Container.innerHTML = ''; // Supprime les anciennes img
             const imgElement = document.createElement('img');
             imgElement.src = `/static/new_plot.png`;
             imgElement.id = "RP_graph"

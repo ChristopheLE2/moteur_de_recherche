@@ -7,6 +7,7 @@ ENV PYTHONBUFFERED 1
 
 
 RUN pip install --upgrade pip
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 -y
 
 COPY requirements.txt 
 RUN pip install -r requirements.txt

@@ -15,34 +15,36 @@
         </div>
 
         <div class="menu">
-            <select name="descriptor_type" id="descriptor_type" multiple>
-                <option value="default" selected>Type de descripteur</option>
-                <option value="HSV">HSV</option>
-                <option value="BGR">BGR</option>
-                <option value="SIFT">SIFT</option>
-                <option value="ORB">ORB</option>
-                <option value="LBP">LBP</option>
-                <option value="GLCM">GLCM</option>
-                <option value="HOG">HOG</option>
-                <option value="VGG16">VGG16</option>
-                <script>new MultiSelectTag('descriptor_type') </script>
-            </select>
-            <select name="similarity_calculation">
-                <option value="default" selected>Calcul similarité</option>
-                <option value="Euclidienne">Euclidienne</option>
-                <option value="Correlation">Correlation</option>
-                <option value="Chi Carre">Chi Carre</option>
-                <option value="Intersection">Intersection</option>
-                <option value="Bhattacharyya">Bhattacharyya</option>
-                <option value="Brute_force">Brute force</option>
-                <option value="Flann">Flann</option>
-            </select>
-            <select name="images_to_display">
-                <option value="default" selected>Nombre images à afficher</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-                
-            </select>
+            <form method="POST">
+                <select name="descriptor_type" id="descriptor_type" multiple>
+                    <option value="default" selected>Type de descripteur</option>
+                    <option value="HSV">HSV</option>
+                    <option value="BGR">BGR</option>
+                    <option value="SIFT">SIFT</option>
+                    <option value="ORB">ORB</option>
+                    <option value="LBP">LBP</option>
+                    <option value="GLCM">GLCM</option>
+                    <option value="HOG">HOG</option>
+                    <option value="VGG16">VGG16</option>
+                    <script>new MultiSelectTag('descriptor_type') </script>
+                </select>
+                <select name="similarity_calculation">
+                    <option value="default" selected>Calcul similarité</option>
+                    <option value="Euclidienne">Euclidienne</option>
+                    <option value="Correlation">Correlation</option>
+                    <option value="Chi Carre">Chi Carre</option>
+                    <option value="Intersection">Intersection</option>
+                    <option value="Bhattacharyya">Bhattacharyya</option>
+                    <option value="Brute_force">Brute force</option>
+                    <option value="Flann">Flann</option>
+                </select>
+                <select name="images_to_display">
+                    <option value="default" selected>Nombre images à afficher</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    
+                </select>
+            </form>
             <button id="load-images" type="button" onclick="loadImages()">Rechercher</button>
         </div>
 

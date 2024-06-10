@@ -1,2 +1,11 @@
 Flask
-plotly=5.22.0
+numpy
+scipy
+matplotlib
+scikit-learn
+scikit-image
+opencv-python
+opencv-contrib-python
+Gunicorn
+keras
+tensorflow
