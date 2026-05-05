@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles_about.css') }}">
+    </head>
+    <body>
+        <h2 class="team-heading">Notre équipe</h2>
+    </body>
+
+  <section class="gallery">
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='hugo.png') }}" alt="Image 1">
+        <p>Passioné par les sciences et les mathématiques j'aime utiliser l'informatique et l'IA pour créer des solutions innovantes</p>
+    </div>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='christophe.png') }}" alt="Image 2">
+        <p>Etudiant en ERASMUS passioné d'IA et de data </p>
+    </div>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='zoe.png') }}" alt="Image 3">
+        <p>Etudiante polytech passioné d'IA</p>
+    </div>
+  </section>
+  </body>
+  <footer>
+    <a href="/">Retour à la page d'accueil</a>
+</footer>
+</html>
