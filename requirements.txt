@@ -1,0 +1,11 @@
+Flask
+numpy
+scipy
+matplotlib
+scikit-learn
+scikit-image
+opencv-python
+opencv-contrib-python
+Gunicorn
+keras
+tensorflow
