@@ -17,4 +17,3 @@ services:
     build: ./index_input/script
     volumes:
       - ./index_input/input:/input
-
