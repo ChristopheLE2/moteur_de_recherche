@@ -48,16 +48,23 @@
             <button id="load-images" type="button" onclick="loadImages()">Rechercher</button>
         </div>
 
-        <div class="image-upload" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div>
-                <div id="input_image_display"></div>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" id="fileInput" onchange="selectInput()" style="display:none">
-                    <button id="selectImgBtn" type="button" onclick="document.getElementById('fileInput').click()">Drop image here or click to select</button>
-                </form>
-            </div>
-            
-        </div>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input
+                type="file"
+                id="fileInput"
+                name="image"
+                accept="image/*"
+                style="display:none"
+                onchange="this.form.submit()"
+            >
+
+            <button
+                type="button"
+                onclick="document.getElementById('fileInput').click()"
+            >
+                Choisir une image
+            </button>
+        </form>
 
         <div id="RP_pic">
         </div>
