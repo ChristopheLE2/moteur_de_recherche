@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moteur de recherche</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>           
     
 </head>
@@ -15,7 +15,7 @@
         </div>
 
         <div class="menu">
-            <form method="POST">
+            <form id="search-form">
                 <select name="descriptor_type" id="descriptor_type" multiple>
                     <option value="default" selected>Type de descripteur</option>
                     <option value="HSV">HSV</option>
@@ -45,7 +45,7 @@
                     
                 </select>
             </form>
-            <button id="load-images" type="button" onclick="loadImages()">Rechercher</button>
+            <button id="load-images" type="button" onclick="startSearch()">Rechercher</button>
         </div>
 
         <form action="/upload" method="post" enctype="multipart/form-data">
@@ -55,7 +55,7 @@
                 name="image"
                 accept="image/*"
                 style="display:none"
-                onchange="this.form.submit()"
+                onchange="uploadImage()"
             >
 
             <button
